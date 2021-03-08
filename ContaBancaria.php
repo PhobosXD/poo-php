@@ -17,12 +17,18 @@ class ContaBancaria
         $this->saldo = $saldo;
     }
 
-    public function get_saldo() : float
+    public function getSaldo() : float
     {
         return $this->saldo;
     }
+
+    public function deposito($valor) : void
+    {
+        $this->saldo += $valor;
+    }
+
+    public function saque($valor) : void
+    {
+        $this->saldo -= $valor;
+    }
 }
-
-$conta = new ContaBancaria('Nu Bank', 'Cazuza', '1234', '12345678-9', 300.0);
-
-echo $conta->get_saldo();
