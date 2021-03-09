@@ -20,13 +20,16 @@ class Produto
         }
     }
 
-    public function list() : void
+    public function list() : array
     {
         $sql = 'select * from produtos';
+        $produtos = [];
         
         foreach ($this->connection->query($sql) as $key => $value) {
-            echo 'ID: '.$value['id'].'<br>Nome: '.$value['nome'].'<hr>';
+            array_push($produtos, $value);
         }
+
+        return $produtos;
     }
 
     public function insert(string $name) : int
