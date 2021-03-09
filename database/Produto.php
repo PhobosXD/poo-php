@@ -29,35 +29,35 @@ class Produto
         }
     }
 
-    public function insert() : int
+    public function insert(string $name) : int
     {
         $sql = 'insert into produtos(nome) value(?)';
         $prepare = $this->connection->prepare($sql);
 
-        $prepare->bindParam(1, $_GET['nome']);
+        $prepare->bindParam(1, $name);
         $prepare->execute();
 
         return $prepare->rowCount();
     }
 
-    public function update() : int
+    public function update(string $name, int $id) : int
     {
         $sql = 'update produtos set nome = ? where id = ?';
         $prepare = $this->connection->prepare($sql);
 
-        $prepare->bindParam(1, $_GET['nome']);
-        $prepare->bindParam(2, $_GET['id']);
+        $prepare->bindParam(1, $name);
+        $prepare->bindParam(2, $id);
         $prepare->execute();
 
         return $prepare->rowCount();
     }
 
-    public function delete() : int
+    public function delete(int $id) : int
     {
         $sql = 'delete from produtos where id = ?';
         $prepare = $this->connection->prepare($sql);
 
-        $prepare->bindParam(1, $_GET['id']);
+        $prepare->bindParam(1, $id);
         $prepare->execute();
 
         return $prepare->rowCount();
