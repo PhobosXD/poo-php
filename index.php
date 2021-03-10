@@ -1,18 +1,27 @@
 <?php
 
-include 'ContaBancaria.php';
+include 'database/Produto.php';
 
-$conta = new ContaBancaria('Nu Bank', 'Cazuza', '1234', '12345678-9', 0);
+$produto = new Produto();
 
-echo $conta->getSaldo();
-echo PHP_EOL;
+switch ($_GET['operation']) {
+    case 'list':
+        echo '<h1>Produtos:</h1>';
 
-$conta->deposito(300);
+        foreach ($produto->list() as $value) {
+            echo 'ID: '.$value['id'].'<br>Nome: '.$value['nome'].'<hr>';
+        }
+    break;
 
-echo $conta->getSaldo();
-echo PHP_EOL;
+    case 'insert':
+        echo $produto->insert('Produto01');
+    break;
 
-$conta->saque(200);
+    case 'update':
+        echo $produto->update('Produto02', 2);
+    break;
 
-echo $conta->getSaldo();
-echo PHP_EOL;
+    case 'delete':
+        echo $produto->delete(1);
+    break;
+}
