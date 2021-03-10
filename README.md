@@ -2,7 +2,17 @@
 
 ## Orientação a objetos
 
-1. Tipagem em php.
-2. Classes.
-3. Atributos de classes.
-4. Métodos de classes.
+- Tipagem em php.
+- Classes.
+- Atributos de classes.
+- Métodos de classes.
+
+## Exceções
+
+- Lançamento de exceções.
+- Capturando exceções.
+
+## Banco de dados
+
+- PHP Database Object.
+- Inserção, listagem, alteração e remoção de dados.
